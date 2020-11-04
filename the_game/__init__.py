@@ -9,7 +9,7 @@ __description__ = "Core package to simulate 'The Game' game."
 __author__ = "Syonder"
 __version__ = "0.0.1"
 __license__ = "Apache-2.0"
-__url__ = "CHANGE-ME"
+__url__ = "https://github.com/Syonder/TheGameEnv.git"
 
 __all__ = [
     "GameEnv",
