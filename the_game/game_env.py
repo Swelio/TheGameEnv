@@ -209,6 +209,17 @@ class GameEnv:
         self.players.append(new_player)
         return new_player
 
+    def prepare_game(self):
+        """
+        Prepare players for the game.
+        :return:
+        :rtype:
+        """
+        # setup players hands
+        for player in self.players:
+            player.draw_count = self.PLAYER_DRAW_COUNT[len(self.players)]
+            player.fill_hand()
+
     def play_game(self):
         """
         Start game and play until the end.
@@ -218,10 +229,7 @@ class GameEnv:
 
         assert 1 <= len(self.players) <= 5, "Invalid number of players."
 
-        # setup players hands
-        for player in self.players:
-            player.draw_count = self.PLAYER_DRAW_COUNT[len(self.players)]
-            player.fill_hand()
+        self.prepare_game()
 
         # core loop of game
         # break on GameOver or if all cards have been played
