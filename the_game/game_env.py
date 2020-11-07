@@ -85,7 +85,11 @@ class Heap:
         assert direction in (self.HEAP_UP, self.HEAP_DOWN), "Invalid direction."
 
         self.direction = direction
-        self.heap: list = []
+
+        if direction == self.HEAP_UP:
+            self.heap: List[int] = [1]
+        else:
+            self.heap: List[int] = [100]
 
     def validate_card(self, card: int) -> bool:
         """
@@ -95,8 +99,6 @@ class Heap:
         :return: True if card can be played here.
         :rtype: bool
         """
-        if len(self.heap) == 0:
-            return True
 
         if self.direction == self.HEAP_UP:
             return card > self.heap[0] or card == self.heap[0] - 10
